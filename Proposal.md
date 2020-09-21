@@ -12,7 +12,7 @@
     - Potential framewors that we can use: https://scrapy.org/
 
 - [ ] **Web Design**
-    - Use libraries such as *Flask* or * Django* to build website framework
+    - Use libraries such as *Flask* or *Django* to build website framework
     - Use java and Spring Boot to create a website: https://start.spring.io/
 
 
