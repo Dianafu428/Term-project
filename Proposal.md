@@ -6,22 +6,22 @@
 
 ## Implementation Plan
 
--[] **Content Aggregator**: 
-    1. Use libraries such as *requests* for sending HTTP requests and *BeautifulSoup* to parse and scrape the necessary content from the sites.
-    2. Use libraries such as *celery* or *apscheduler* to implement content aggregation as a background process.
-    3. Potential framewors that we can use: https://scrapy.org/
+- [ ] **Content Aggregator**: 
+    - Use libraries such as *requests* for sending HTTP requests and *BeautifulSoup* to parse and scrape the necessary content from the sites.
+    - Use libraries such as *celery* or *apscheduler* to implement content aggregation as a background process.
+    - Potential framewors that we can use: https://scrapy.org/
 
--[]**Web Design**
-    1. Use libraries such as *Flask* or * Django* to build website framework
-    2. Use java and Spring Boot to create a website: https://start.spring.io/
+- [ ]**Web Design**
+    - Use libraries such as *Flask* or * Django* to build website framework
+    - Use java and Spring Boot to create a website: https://start.spring.io/
 
 
 ## Project Schedule
 
--[] **9/21-10/5**: Gather information, learn scrapy functions and frameworks, set up fundamental HTTP requests and scrape the necessary content from sites
--[] **10/5-10/19**: Work on scraping content from various sites, creating database, finish any visualization/content format 
--[] **10/19-11/16**: Work on web design, create a website/homepage that enables users to choose the location and display scraped content properly
--[] **11/16-11/30**: Integration. Work on final deliveries.
+- [ ] **9/21-10/5**: Gather information, learn scrapy functions and frameworks, set up fundamental HTTP requests and scrape the necessary content from sites
+- [ ] **10/5-10/19**: Work on scraping content from various sites, creating database, finish any visualization/content format 
+- [ ] **10/19-11/16**: Work on web design, create a website/homepage that enables users to choose the location and display scraped content properly
+- [ ] **11/16-11/30**: Integration. Work on final deliveries.
 
 ## Collaboration Plan
 
@@ -37,4 +37,4 @@
 
 ## Additional Course Content
 
--**Flask**: the web apllication course on 10/15
+- **Flask**: the web apllication course on 10/15
