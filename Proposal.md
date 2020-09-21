@@ -11,7 +11,7 @@
     - Use libraries such as *celery* or *apscheduler* to implement content aggregation as a background process.
     - Potential framewors that we can use: https://scrapy.org/
 
-- [ ]**Web Design**
+- [ ] **Web Design**
     - Use libraries such as *Flask* or * Django* to build website framework
     - Use java and Spring Boot to create a website: https://start.spring.io/
 
