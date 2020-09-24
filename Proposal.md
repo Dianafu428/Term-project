@@ -1,8 +1,9 @@
 # Term Project Proposal
 
 ## The Big Idea
+
 - **Main Idea**:
-    - Establish a Covid-19 data collection website that collects the number of positive cases across some major towns (ex. Babson campus, Newton, Wellesley, etc.) in the Greater Boston area. 
+    - Establish a Covid-19 content aggregator website that collects the number of positive cases across some major towns (ex. Babson campus, Newton, Wellesley, etc.) in the Greater Boston area. 
     - Through the website, users can easily access the pandemic data and check the update at any time as well as choosing to see the cases in a certain town.
 - **Topics**:
     - Website building and design.
@@ -16,11 +17,12 @@
     - Help users be aware of the real-time pandemic situation around their residence.
 
 ## Learning Goals
+
 - **Shared Goals**:
     - To build a basic, functional website.
     - To be able to use scrapy to collect data from different websites.
 - **Individual Goals**:
-    - To strengthen understanding of python.
+    - To strengthen understanding of python (function, database, libraries, and framework).
     - To employ skills from class into real life problems.
     - To enhance logical thinking and analytical skills.
 
