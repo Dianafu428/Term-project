@@ -6,6 +6,7 @@ domain = "https://www.mass.gov/"
 # https://www.mass.gov/info-details/archive-of-chapter-93-covid-19-data
 # <a href="/doc/chapter-93-state-numbers-daily-report-october-22-2020/download">Chapter 93 State Numbers Daily Report - October 22, 2020</a>
 def download(url):
+    # down load the file
     # url = "https://www.mass.gov/doc/chapter-93-state-numbers-daily-report-october-22-2020/download"
     file_name = url.split("/")[-2]
     res = requests.get(url=url)
@@ -15,6 +16,9 @@ def download(url):
 
 
 def get_lines_his():
+    """
+    search to update info from local
+    """
     fname = "./temp/his.txt"
     if not os.path.isfile(fname):
         f = open(fname, "w")
@@ -29,10 +33,75 @@ def get_lines_his():
 
 
 def save_lines_his(new_file_name):
+    """save the updated info into local file"""
     f = open("./temp/his.txt", "a")
     f.writelines([new_file_name + "\n"])
     f.close()
     pass
+
+
+def try_download_file(url):
+    lines = get_lines_his()
+    file_name = url.split("/")[-2]
+    if lines is None:
+        download(url)
+        save_lines_his(file_name)
+        return False
+    if file_name == lines[-1].replace("\n", ""):
+        return False
+
+    download(url)
+    save_lines_his(file_name)
+    return True
+
+
+def search_web_page():
+    """web page crawler"""
+    url = "https://www.mass.gov/info-details/archive-of-chapter-93-covid-19-data"
+    res = requests.get(url)
+    res.encoding = "utf-8"
+    selector = etree.HTML(res.text)
+
+    # analysis excel
+    xlsx_url = selector.xpath(
+        '//*[@id="main-content"]/div[2]/div/div/section[1]/div/div/ul/li[1]/ul/li[2]/a/@href'
+    )
+    # print(xlsx_url)
+    if len(xlsx_url) == 0:
+        return False
+
+    return try_download_file(domain + xlsx_url[0])
+
+
+def search_school():
+    """Babson College COVID 19 Dashboard crawler"""
+
+    res = requests.get(
+        url="https://www.babson.edu/emergency-preparedness/return-to-campus/covid-dashboard/"
+    )
+    # res.encoding = 'utf-8'
+
+    # //*[@id="id-1389423"]/table/thead/tr[2]/td[1]/p[1]
+    selector = etree.HTML(res.text)
+    data1 = selector.xpath('//*[@id="id-1251114"]/table/thead/tr[2]/td[3]/p[1]/text()')
+    data2 = selector.xpath('//*[@id="id-1251114"]/table/thead/tr[2]/td[3]/p[2]/text()')
+    data3 = selector.xpath('//*[@id="id-1251114"]/table/thead/tr[2]/td[3]/p[3]/text()')
+    days_7 = []
+    days_7.append(" ".join(" ".join(data1).split()))
+    days_7.append(" ".join(" ".join(data2).split()))
+    days_7.append(" ".join(" ".join(data3).split()))
+
+    since_aug = []
+    data1 = selector.xpath('//*[@id="id-1248929"]/table/thead/tr[2]/td[3]/p[1]/text()')
+    data2 = selector.xpath('//*[@id="id-1248929"]/table/thead/tr[2]/td[3]/p[2]/text()')
+    data3 = selector.xpath('//*[@id="id-1248929"]/table/thead/tr[2]/td[3]/p[3]/text()')
+    since_aug.append(" ".join(" ".join(data1).split()))
+    since_aug.append(" ".join(" ".join(data2).split()))
+    since_aug.append(" ".join(" ".join(data3).split()))
+
+    print(days_7, since_aug)
+
+    return days_7, since_aug
 
 
 if __name__ == "__main__":
@@ -40,3 +109,7 @@ if __name__ == "__main__":
 
     # download(url)
     # save_lines_his("test.txt")
+    # try_download_file(url)
+    # search_web_page()
+    # search_school()
+    pass
