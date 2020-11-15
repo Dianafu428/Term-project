@@ -32,3 +32,23 @@ def start_schedule():
 @app.route("/")
 def hellow():
     return "Hello world"
+
+# acquire information interface
+@app.route("/infos")
+def infos():
+    # acquire data information, real-time data crawling from babson
+    #college covid update website
+    days_7,since_aug = get_infos()
+    # acquire data from the covid dashboard
+    infos = get_table()
+    columns= ['city','Total tests last 14 days','Total positive tests last 14 days','rate_percetage','test_total','positive_total',"Positive Rate per 100,000"]
+    return render_template("infos.html",days_7 = days_7,since_aug = since_aug,infos=infos,columns=columns)
+
+
+if __name__ == '__main__':
+    t1 = threading.Thread(target=start_schedule,args=())
+    t1.setDaemon(True)
+    t1.start()
+
+    print("start web")
+    app.run(debug=True)
