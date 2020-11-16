@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table{
+    border:1px solid;
+    margin:0 auto;
+    width:20%
+    }
+</style>
+aaaa <br>
+{{data.name}}<br>
+{{data.age}}<br>
+<hr>
+{% for i in l%}
+    {% if i > 3%}
+        {{i}}<br>
+    {% endif%}
+{% endfor %}
+    <table >
+            <tr>
+                {% for name in table_name %}
+                    <th>{{name}}</th>
+                {% endfor %}
+            </tr>
+            {% for data in table_value %}
+                <tr>
+                    {% for key in data %}
+                        <td bgcolor="#7fffd4">{{data[key]}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+    </table>
+
+</body>
+</html>
