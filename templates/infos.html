@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+    console.log('adjustment');
+        <!--search-->
+        function search(){
+            var ele = document.getElementById('cityInput')
+            var cityName = ele.value
+            if(cityName ==""){
+                return
+            }
+            var trs = document.getElementsByName('infoTr')
+            console.log(trs)
+            for(var i= 0;i<trs.length;i++)
+            {
+                var tds = trs[i].children;
+                cityTd = tds[0]
+                <!--once the city name matches, there will be corresponding result showing; otherwise, there will be none-->
+                if(cityTd.innerHTML.indexOf(cityName) <0)
+                {
+                    console.log(cityTd)
+                    trs[i].style.display = 'none';
+                }
+                else{
+                    trs[i].style.display = '';
+                }
+
+            }
+
+        }
+
+
+    </script>
+</head>
+<body>
+
+
+<style>
+    table{
+    border:1px solid;
+    margin:0 auto;
+    }
+</style>
+    <h1 style="text-align:center">COVID-19 Data in Massachusetts</h1>
+    <hr>
+    <h2 style="text-align:center"> Babson COVID-19 Data</h2>
+    <table border="1px">
+            <tr>
+                <td>
+                    <h3>
+                        TESTS AND POSITIVE RESULTS REPORTED IN  &nbsp; <br>
+                        MOST RECENT 7 DAY PERIOD
+                    </h3>
+                </td>
+                <td>
+                    <h3>
+                        CUMULATIVE TESTS AND POSITIVE  &nbsp; <br>
+                        RESULTS REPORTED
+                    </h3>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" >
+                    {% for i in days_7 %}
+                    <p>{{i}}</p>
+                    {% endfor %}
+                </td>
+                <td align="center" >
+                    {% for i in since_aug %}
+                    <p>{{i}}</p>
+                    {% endfor %}
+                </td>
+            </tr>
+
+    </table>
+    <h6 style="text-align:center">Only confirmed positive cases that involve people who may have had contact with the Babson community are included.
+        <br>* Three or fewer positive results are reported as "≤ 3" for confidentiality purposes.
+        <br>**&nbsp;Vendors and third-parties which provide services on campus
+    </h6>
+    <hr>
+<h2 style="text-align:center">Town-by-Town COVID-19 Data</h2>
+<input id = "cityInput" type="text" value= "Enter the City Name" name="city" size="20" />   <!--click on the add button and add information  -->
+<input  type="button" onclick="search()" value="search" size="18" />   <!--click on the add button and add information  -->
+<h2></h2>
+    <table border="1px">
+            <tr>
+                {% for column in columns %}
+                    <th>{{column}}</th>
+                {% endfor %}
+            </tr >
+            {% for info in infos %}
+                <tr name ="infoTr">
+                    {% for key in info %}
+                        <td bgcolor="#FEFDFF" align="center" >{{info[key]}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+    </table>
+
+
+
+</body>
+</html>
