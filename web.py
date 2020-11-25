@@ -11,11 +11,12 @@ app = Flask(__name__)
 # timed task
 def job(name):
     now = datetime.datetime.now()
-    print(now,"crawler data update task is activated:")
+    print(now,"crawler data update task is activated：")
     if search_web_page():
-        print("data is updated！")
+        print("data is updated！！")
     else:
         print("data is not updated")
+
 
 # start timed task
 def start_schedule():
@@ -28,16 +29,17 @@ def start_schedule():
         schedule.run_pending()
         time.sleep(1)
 
-# test interface
-@app.route("/")
-def hellow():
-    return "Hello world"
+# # test interface
+# @app.route("/")
+# def hellow():
+#     return "Hello world"
 
 # acquire information interface
+@app.route("/")
+@app.route("/index")
 @app.route("/infos")
 def infos():
-    # acquire data information, real-time data crawling from babson
-    #college covid update website
+    # acquire data information, real-time data crawling from babson college covid website
     days_7,since_aug = get_infos()
     # acquire data from the covid dashboard
     infos = get_table()
