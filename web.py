@@ -43,7 +43,7 @@ def infos():
     days_7,since_aug = get_infos()
     # acquire data from the covid dashboard
     infos = get_table()
-    columns= ['city','Total tests last 14 days','Total positive tests last 14 days','Positive Rate in Last 14 Days','Total tests','Total Positive Cases',"Positive Rate per 100,000"]
+    columns= ['City','Total Tests Last 14 Days','Total Positive Tests Last 14 Days','Positive Rate in Last 14 Days','Total Tests','Total Positive Cases',"Positive Rate per 100,000"]
     return render_template("infos.html",days_7 = days_7,since_aug = since_aug,infos=infos,columns=columns)
 
 

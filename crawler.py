@@ -94,9 +94,9 @@ def search_school():
         '//*[@id="id-1251114"]/table/thead/tr[2]/td[3]/table/tbody/tr[4]/td[2]/span/text()'
     )
     days_7 = []
-    days_7.append("Students:" + " ".join(" ".join(data1).split()))
-    days_7.append("Employees:" + " ".join(" ".join(data2).split()))
-    days_7.append("Service Providers" + " ".join(" ".join(data3).split()))
+    days_7.append("Students: " + " ".join(" ".join(data1).split()))
+    days_7.append("Employees: " + " ".join(" ".join(data2).split()))
+    days_7.append("Service Providers: " + " ".join(" ".join(data3).split()))
 
     since_aug = []
     data1 = selector.xpath(
@@ -108,9 +108,9 @@ def search_school():
     data3 = selector.xpath(
         '//*[@id="id-1248929"]/table/thead/tr[2]/td[3]/table/tbody/tr[4]/td[2]/span/text()'
     )
-    since_aug.append("Students:" + " ".join(" ".join(data1).split()))
-    since_aug.append("Employees:" + " ".join(" ".join(data2).split()))
-    since_aug.append("Service Providers:" + " ".join(" ".join(data3).split()))
+    since_aug.append("Students: " + " ".join(" ".join(data1).split()))
+    since_aug.append("Employees: " + " ".join(" ".join(data2).split()))
+    since_aug.append("Service Providers: " + " ".join(" ".join(data3).split()))
 
     print(days_7, since_aug)
 
