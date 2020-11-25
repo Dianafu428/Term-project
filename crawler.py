@@ -56,13 +56,14 @@ def try_download_file(url):
 
 
 def search_web_page():
-    """web page crawler"""
+    """web page excel crawler"""
+
+    # request data
     url = "https://www.mass.gov/info-details/archive-of-chapter-93-covid-19-data"
     res = requests.get(url)
     res.encoding = "utf-8"
     selector = etree.HTML(res.text)
 
-    # analysis excel
     xlsx_url = selector.xpath(
         '//*[@id="main-content"]/div[2]/div/div/section[1]/div/div/ul/li[1]/ul/li[2]/a/@href'
     )
@@ -81,23 +82,35 @@ def search_school():
     )
     # res.encoding = 'utf-8'
 
-    # //*[@id="id-1389423"]/table/thead/tr[2]/td[1]/p[1]
+    # put page info into different selector
     selector = etree.HTML(res.text)
-    data1 = selector.xpath('//*[@id="id-1251114"]/table/thead/tr[2]/td[3]/p[1]/text()')
-    data2 = selector.xpath('//*[@id="id-1251114"]/table/thead/tr[2]/td[3]/p[2]/text()')
-    data3 = selector.xpath('//*[@id="id-1251114"]/table/thead/tr[2]/td[3]/p[3]/text()')
+    data1 = selector.xpath(
+        '//*[@id="id-1251114"]/table/thead/tr[2]/td[3]/table/tbody/tr[2]/td[2]/span/text()'
+    )
+    data2 = selector.xpath(
+        '//*[@id="id-1251114"]/table/thead/tr[2]/td[3]/table/tbody/tr[3]/td[2]/span/text()'
+    )
+    data3 = selector.xpath(
+        '//*[@id="id-1251114"]/table/thead/tr[2]/td[3]/table/tbody/tr[4]/td[2]/span/text()'
+    )
     days_7 = []
-    days_7.append(" ".join(" ".join(data1).split()))
-    days_7.append(" ".join(" ".join(data2).split()))
-    days_7.append(" ".join(" ".join(data3).split()))
+    days_7.append("Students:" + " ".join(" ".join(data1).split()))
+    days_7.append("Employees:" + " ".join(" ".join(data2).split()))
+    days_7.append("Service Providers" + " ".join(" ".join(data3).split()))
 
     since_aug = []
-    data1 = selector.xpath('//*[@id="id-1248929"]/table/thead/tr[2]/td[3]/p[1]/text()')
-    data2 = selector.xpath('//*[@id="id-1248929"]/table/thead/tr[2]/td[3]/p[2]/text()')
-    data3 = selector.xpath('//*[@id="id-1248929"]/table/thead/tr[2]/td[3]/p[3]/text()')
-    since_aug.append(" ".join(" ".join(data1).split()))
-    since_aug.append(" ".join(" ".join(data2).split()))
-    since_aug.append(" ".join(" ".join(data3).split()))
+    data1 = selector.xpath(
+        '//*[@id="id-1248929"]/table/thead/tr[2]/td[3]/table/tbody/tr[2]/td[2]/span/text()'
+    )
+    data2 = selector.xpath(
+        '//*[@id="id-1248929"]/table/thead/tr[2]/td[3]/table/tbody/tr[3]/td[2]/span/text()'
+    )
+    data3 = selector.xpath(
+        '//*[@id="id-1248929"]/table/thead/tr[2]/td[3]/table/tbody/tr[4]/td[2]/span/text()'
+    )
+    since_aug.append("Students:" + " ".join(" ".join(data1).split()))
+    since_aug.append("Employees:" + " ".join(" ".join(data2).split()))
+    since_aug.append("Service Providers:" + " ".join(" ".join(data3).split()))
 
     print(days_7, since_aug)
 
