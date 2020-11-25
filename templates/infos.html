@@ -21,7 +21,7 @@
                 var tds = trs[i].children;
                 cityTd = tds[0]
                 <!--once the city name matches, there will be corresponding result shown; otherwise, there will be none-->
-                if(cityTd.innerHTML.indexOf(cityName) <0)
+                if(cityTd.innerHTML.toLowerCase().indexOf(cityName.toLowerCase()) <0)
                 {
                     console.log(cityTd)
                     trs[i].style.display = 'none';
@@ -84,8 +84,8 @@
     </h6>
     <hr>
 <h2 style="text-align:center">Town-by-Town COVID-19 Data</h2>
-<input id = "cityInput" type="text" value= "Enter the City Name" name="city" size="20" />   <!--click on the add button and add information  -->
-<input  type="button" onclick="search()" value="search" size="18" />   <!--click on the add button and add information  -->
+<input id = "cityInput" type="text" value= "Enter the City Name" name="city" size="20" />   <!--click on the add button and add events  -->
+<input  type="button" onclick="search()" value="search" size="18" />   <!--click on the add button and add events  -->
 <h2></h2>
     <table border="1px">
             <tr>

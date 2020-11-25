@@ -21,8 +21,8 @@ def job(name):
 def start_schedule():
     print("start timer job:")
     name = "longsongpong"
-    # update the data every 20 seconds
-    schedule.every(20).seconds.do(job, name)
+    # update the data every 12 hours
+    schedule.every(720).minutes.do(job, name)
     #schedule.every(1).minutes.do(job, name)
     while True:
         schedule.run_pending()
