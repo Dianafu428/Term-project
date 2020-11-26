@@ -21,7 +21,7 @@
 - [ ] Please go to [web](web.py) and run the code.
 - [ ] After seeing *Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)*, please either 
     - [ ] Press CTRL and click the website link in your terminal window or 
-    - [ ] Click [here] (http://127.0.0.1:5000/).
+    - [ ] Click [here](http://127.0.0.1:5000/).
 
 
 
