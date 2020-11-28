@@ -118,7 +118,7 @@ def search_school():
 
 
 if __name__ == "__main__":
-    url = "https://www.mass.gov/doc/chapter-93-state-numbers-daily-report-october-22-2020/download"
+    #url = "https://www.mass.gov/doc/chapter-93-state-numbers-daily-report-october-22-2020/download"
 
     # download(url)
     # save_lines_his("test.txt")
