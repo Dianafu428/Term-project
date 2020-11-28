@@ -6,7 +6,7 @@ domain = "https://www.mass.gov/"
 # https://www.mass.gov/info-details/archive-of-chapter-93-covid-19-data
 # <a href="/doc/chapter-93-state-numbers-daily-report-october-22-2020/download">Chapter 93 State Numbers Daily Report - October 22, 2020</a>
 def download(url):
-    # down load the file
+    # download the file
     # url = "https://www.mass.gov/doc/chapter-93-state-numbers-daily-report-october-22-2020/download"
     file_name = url.split("/")[-2]
     res = requests.get(url=url)

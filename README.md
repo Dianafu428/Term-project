@@ -24,4 +24,6 @@
     - [ ] Click [here](http://127.0.0.1:5000/).
 
 
+## More Information
+- For more information regarding our goal, implementation information, results, and project evolution, please visit our [website](https://sites.google.com/babson.edu/mis3640project-diana-weijia/home?authuser=0).
 
